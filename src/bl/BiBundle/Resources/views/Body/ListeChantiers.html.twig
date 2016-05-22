@@ -1,0 +1,50 @@
+{% extends "blBiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Liste des Entreprises
+{% endblock %}
+
+{% block body %}
+<br/>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Liste des Chantiers</h4>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <th>Nom</th>
+            <th>date de Debut</th>
+            <th>date de Fin</th>
+            <th>Actions</th>
+            
+            {% for chantier in liste %}
+                <tr>
+                    <td>{{ chantier.nom }}</td>
+					<td>{{ chantier.dateDebut.format("m/d/y") }}</td>
+                    <td>{{ chantier.dateFin.format("m/d/y") }}</td>
+                    <td>
+                        <a href="{{ path( "bl_bi_chefChantier_detailChantier" , { 'id': chantier.id}) }}">
+                            <button class="btn btn-primary">Detail</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+            
+        </table>
+		<a href="{{ path( "bl_bi_chefChantier_ajouterChantier") }}">
+			<button class="btn btn-primary">Créer un nouveau Chantier</button>
+		</a>   
+		
+    </div>
+</div>
+
+<br/>
+           
+{% endblock %}

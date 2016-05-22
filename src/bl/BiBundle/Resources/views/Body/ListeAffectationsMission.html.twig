@@ -1,0 +1,57 @@
+{% extends "blBiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Liste des Affectations
+{% endblock %}
+
+{% block body %}
+<br/>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Mission {{mission.intitule}} : Affectations</h4>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <th>artisan</th>
+            <th>Date</th>
+            <th>statut</th>
+            <th>Actions</th>
+            
+            {% for affectation in liste %}
+                <tr>
+                    <td>{{ affectation.artisan.nom }} {{ affectation.artisan.prenom }}</td>
+                    <td>{{ affectation.dateAffectation.format("d/m/y") }}</td>
+                    <td>{{ affectation.statut }}</td>
+                    <td>
+                        <a href="{{ path( "bl_bi_chefChantier_supprimerAffectation" , { 'id': affectation.id}) }}">
+                            <button class="btn btn-danger">Annuler</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+            
+        </table>
+		<a href="{{ path( "bl_bi_chefChantier_ajouterAffectation" , { 'id': mission.id}) }}">
+			<button class="btn btn-primary">Affecter un nouvel artisan</button>
+		</a>   
+		
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+	<a href="{{ path( "bl_bi_chefChantier_detailChantier" , { 'id': mission.chantier.id}) }}">
+		<button class="btn btn-primary">Retour</button>
+    </a>     
+</div>       
+
+            
+{% endblock %}

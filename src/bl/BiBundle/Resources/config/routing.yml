@@ -1,0 +1,169 @@
+bl_bi_artisan_findOneByName:
+    path:   /artisan/findOneByName/{name}
+    defaults : { _controller: blBiBundle:Artisan:findOneByName }
+    
+bl_bi_connexion:
+    path:   /
+    defaults : { _controller: blBiBundle:Connexion:connexion }
+    
+bl_bi_initialisation:
+    path:   /initialisation/{id}
+    defaults : { _controller: blBiBundle:Connexion:initialisation }
+    
+bl_bi_deconnexion:
+    path:   /deconnexion
+    defaults : { _controller: blBiBundle:Connexion:deconnexion }
+
+bl_bi_gestionnaire_listeArtisans :
+    path:   /gestionnaire/Artisan/
+    defaults : { _controller: blBiBundle:Gestionnaire:listeArtisans }
+
+    
+bl_bi_gestionnaire_ajouterArtisan :
+    path:   /gestionnaire/Artisan/ajouter
+    defaults : { _controller: blBiBundle:Gestionnaire:ajouterArtisan }
+    
+
+
+bl_bi_gestionnaire_detailArtisan :
+    path:   /gestionnaire/Artisan/detail/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:detailArtisan }
+
+bl_bi_gestionnaire_modifierArtisan :
+    path:   /gestionnaire/Artisan/modifier/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:modifierArtisan }
+    
+bl_bi_gestionnaire_supprimerArtisan :
+    path:   /gestionnaire/Artisan/supprimer/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:supprimerArtisan }
+
+   
+       
+bl_bi_gestionnaire_listeEntreprises :
+    path:   /gestionnaire/Entreprise/
+    defaults : { _controller: blBiBundle:Gestionnaire:listeEntreprises }
+   
+bl_bi_gestionnaire_ajouterEntreprise :
+    path:   /gestionnaire/Entreprise/ajouter
+    defaults : { _controller: blBiBundle:Gestionnaire:ajouterEntreprise}
+    
+    
+bl_bi_gestionnaire_detailEntreprise :
+    path:   /gestionnaire/Entreprise/detail/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:detailEntreprise }
+
+bl_bi_gestionnaire_modifierEntreprise :
+    path:   /gestionnaire/Entreprise/modifier/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:modifierEntreprise }
+    
+bl_bi_gestionnaire_supprimerEntreprise :
+    path:   /gestionnaire/Entreprise/supprimer/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:supprimerEntreprise }
+    
+    
+bl_bi_gestionnaire_ajouterChefChantier :
+    path:   /gestionnaire/ChefChantier/ajouter/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:ajouterChefChantier}
+    
+bl_bi_gestionnaire_modifierChefChantier :
+    path:   /gestionnaire/ChefChantier/modifier/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:modifierChefChantier }
+    
+bl_bi_gestionnaire_supprimerChefChantier :
+    path:   /gestionnaire/ChefChantier/supprimer/{id}
+    defaults : { _controller: blBiBundle:Gestionnaire:supprimerChefChantier }
+    
+    
+bl_bi_chefChantier_listeChantiers :
+    path:   /chefChantier/Chantier/
+    defaults : { _controller: blBiBundle:ChefChantier:listeChantiers }
+
+    
+bl_bi_chefChantier_ajouterChantier :
+    path:   /chefChantier/Chantier/ajouter
+    defaults : { _controller: blBiBundle:ChefChantier:ajouterChantier }
+    
+
+bl_bi_chefChantier_detailChantier :
+    path:   /chefChantier/Chantier/detail/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:detailChantier }
+
+bl_bi_chefChantier_modifierChantier :
+    path:   /chefChantier/Chantier/modifier/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:modifierChantier }
+    
+bl_bi_chefChantier_supprimerChantier :
+    path:   /chefChantier/Chantier/supprimer/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:supprimerChantier }
+    
+bl_bi_chefChantier_ajouterMission :
+    path:   /chefChantier/Mission/ajouter/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:ajouterMission }
+    
+
+bl_bi_chefChantier_modifierMission :
+    path:   /chefChantier/Mission/modifier/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:modifierMission }
+    
+bl_bi_chefChantier_supprimerMission :
+    path:   /chefChantier/Mission/supprimer/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:supprimerMission }
+    
+bl_bi_chefChantier_listeAffectations :
+    path:   /chefChantier/Affectation/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:listeAffectations }
+    
+bl_bi_chefChantier_ajouterAffectation :
+    path:   /chefChantier/Affectation/ajouter/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:ajouterAffectation }
+    
+bl_bi_chefChantier_supprimerAffectation :
+    path:   /chefChantier/Affectation/supprimer/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:supprimerAffectation }
+    
+bl_bi_chefChantier_choisirAffectation :
+    path:   /chefChantier/Affectation/ajouter/{idMission}/{idArtisan}
+    defaults : { _controller: blBiBundle:ChefChantier:choisirAffectation }
+    
+
+bl_bi_chefChantier_listeArtisansDisponibles :
+    path:   /chefChantier/ArtisansDisponibles/
+    defaults : { _controller: blBiBundle:ChefChantier:listeArtisansDisponibles }
+
+bl_bi_chefChantier_detailArtisan :
+    path:   /chefChantier/Artisan/detail/{id}
+    defaults : { _controller: blBiBundle:ChefChantier:detailArtisan }
+
+
+
+bl_bi_artisan_listeAffectations :
+    path:   /artisan/Affectation/
+    defaults : { _controller: blBiBundle:Artisan:listeAffectations }
+    
+bl_bi_artisan_accepterAffectation :
+    path:   /artisan/Affectation/ajouter/{id}
+    defaults : { _controller: blBiBundle:Artisan:accepterAffectation }
+    
+bl_bi_artisan_refuserAffectation :
+    path:   /artisan/Affectation/supprimer/{id}
+    defaults : { _controller: blBiBundle:Artisan:refuserAffectation }
+    
+bl_bi_artisan_detailMission :
+    path:   /artisan/Mission/{id}
+    defaults : { _controller: blBiBundle:Artisan:detailChantier}
+    
+bl_bi_artisan_modifierArtisan :
+    path:   /artisan/modifier
+    defaults : { _controller: blBiBundle:Artisan:modifierArtisan }
+    
+bl_bi_artisan_listeConges :
+    path:   /artisan/Conges/{annee}-{mois}
+    defaults : { _controller: blBiBundle:Artisan:listeConges, annee: null, mois: null }
+    
+bl_bi_artisan_supprimerConge :
+    path:   /artisan/Conges/supprimer/{id}
+    defaults : { _controller: blBiBundle:Artisan:supprimerConge }
+    
+bl_bi_artisan_ajouterConge :
+    path:   /artisan/Conges/ajouter/{annee}-{mois}-{jour}
+    defaults : { _controller: blBiBundle:Artisan:ajouterConge }

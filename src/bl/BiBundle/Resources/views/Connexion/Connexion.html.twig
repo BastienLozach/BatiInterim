@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BatiInterim</title>
+
+    {% stylesheets '@blBiBundle/Resources/public/css/bootstrap.css' %}
+
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+
+    {% endstylesheets %}
+ 
+  </head>
+  <body>    
+    <div class="container-fluid">
+        <div class="well">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1>Connexion</h1>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">                    
+                    {{ form_start(form)}}
+                    
+                    <label>Login :</label>
+                    {{ form_widget(form.login, { 'attr': {'class': 'form-control'} }) }}
+                    
+                    <label>Mot de passe :</label>
+                    {{ form_widget(form.motDePasse, { 'attr': {'class': 'form-control'} }) }}
+                    
+                    <br/>
+                    
+                    {{ form_widget(form.valider, { 'attr': {'class': 'col-md-5 btn btn-success'} }) }}
+                    {{ form_widget(form.annuler, { 'attr': {'class': 'col-md-5 col-md-offset-1 btn btn-danger'} }) }}
+                    
+                    {{ form_end(form)}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </body>
+</html>
+
+
+
+
+
+
+

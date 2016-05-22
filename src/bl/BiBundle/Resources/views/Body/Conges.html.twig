@@ -1,0 +1,80 @@
+{% extends "blBiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Gestion des congés
+{% endblock %}
+
+{% block body %}
+<br/>
+{% set listeMois = { 1 :'Janvier', 2 :'Fevrier', 3 :'Mars', 4 :'Avril', 5 :'Mai', 6 :'Juin', 7 :'Juillet', 8 :'Aout', 9 :'Septembre', 10 :'Octobre', 11 :'Novembre', 12 :'Decembre'}%}
+<a href="{{ path( "bl_bi_artisan_listeConges" , { 'mois': mois -1, 'annee':annee}) }}">
+                                <button class="btn btn-primary">Avant</button>
+</a>
+
+<h1>{{attribute(listeMois, mois)}} {{annee}}</h1>
+<a href="{{ path( "bl_bi_artisan_listeConges" , { 'mois': mois +1, 'annee':annee}) }}">
+                                <button class="btn btn-primary">Après</button>
+</a>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <th>Lundi</th>
+            <th>Mardi</th>
+            <th>Mercredi</th>
+            <th>Jeudi</th>
+            <th>Vendredi</th>
+            <th>Samedi</th>
+            <th>Dimanche</th>
+            
+            {% for jour in calendrier %}
+                {% if jour == calendrier.0%}
+                    <tr>
+                    {%for i in range(2, jour.jourSemaine) %}
+                        <td></td>
+                    {% endfor %}
+                {% elseif jour.jourSemaine == 1%}
+                    <tr>
+                {%endif%}
+                
+                    {% if jour.conge != null %}
+                        <td>
+                            <a href="{{ path( "bl_bi_artisan_supprimerConge" , { 'id': jour.conge.id}) }}">
+                                <button class="btn btn-success"
+                                    {% if jour.disponible == false %}
+                                        disabled="true"
+                                    {%endif%}     
+                                    >{{jour.jour}}</button>
+                            </a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <a href="{{ path( "bl_bi_artisan_ajouterConge" , { 'jour': jour.jour, 'mois' : mois, 'annee' : annee}) }}">
+                                <button class="btn btn-primary"
+                                    {% if jour.disponible == false %}
+                                        disabled="true"
+                                    {%endif%}     
+                                    >{{jour.jour}}</button>
+                            </a>
+                        </td>
+                    {%endif%} 
+                
+                {% if jour.jourSemaine == 7%}
+                    </tr>
+                {%endif%}
+                
+            {% endfor %}
+            
+        </tr>
+                        
+        </table>
+ 
+		
+    </div>
+</div>
+
+<br/>
+           
+{% endblock %}

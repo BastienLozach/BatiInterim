@@ -1,0 +1,7 @@
+bl_bi:
+    resource: "@blBiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

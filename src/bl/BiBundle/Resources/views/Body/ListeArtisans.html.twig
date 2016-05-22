@@ -1,0 +1,48 @@
+{% extends "bl\BiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Liste des Artisans
+{% endblock %}
+
+{% block body %}
+<br/>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Liste des Artisans</h4>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <th>Nom</th>
+            <th>Corps de Metier</th>
+            <th>Actions</th>
+            
+            {% for artisan in liste %}
+                <tr>
+                    <td>{{ artisan.nom }} {{ artisan.prenom }}</td>
+                    <td>{{ artisan.corpsMetier.libelle }}</td>
+                    <td>
+                        <a href="{{ path( 'bl_bi_gestionnaire_detailArtisan' , { 'id': artisan.id}) }}">
+                            <button class="btn btn-primary">Detail</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+            
+        </table>
+		<a href="{{ path( 'bl_bi_gestionnaire_ajouterArtisan') }}">
+			<button class="btn btn-primary">Créer un nouvel artisan</button>
+		</a>   
+		
+    </div>
+</div>
+
+<br/>
+           
+{% endblock %}

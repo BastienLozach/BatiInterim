@@ -1,0 +1,4 @@
+services:
+#    bl_bi.example:
+#        class: bl\BiBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

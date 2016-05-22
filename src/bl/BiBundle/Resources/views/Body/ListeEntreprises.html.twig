@@ -1,0 +1,50 @@
+{% extends "blBiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Liste des Entreprises
+{% endblock %}
+
+{% block body %}
+<br/>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Liste des Entreprises</h4>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <th>Nom</th>
+            <th>Ville</th>
+			<th>Secteur</th>
+            <th>Actions</th>
+            
+            {% for entreprise in liste %}
+                <tr>
+                    <td>{{ entreprise.nom }}</td>
+					<td>{{ entreprise.ville }}</td>
+                    <td>{{ entreprise.secteur.libelle }}</td>
+                    <td>
+                        <a href="{{ path( "bl_bi_gestionnaire_detailEntreprise" , { 'id': entreprise.id}) }}">
+                            <button class="btn btn-primary">Detail</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+            
+        </table>
+		<a href="{{ path( "bl_bi_gestionnaire_ajouterEntreprise") }}">
+			<button class="btn btn-primary">Créer une nouvelle Entrerpise</button>
+		</a>   
+		
+    </div>
+</div>
+
+<br/>
+           
+{% endblock %}

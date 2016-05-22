@@ -1,0 +1,49 @@
+{% extends "blBiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Détail d'un Artisan
+{% endblock %}
+
+{% block body %}
+    
+<div class="row">
+    
+	<dl class="dl-horizontal">
+        <dt>Nom</dt>
+        <dd>{{artisan.nom}}</dd>
+    </dl>
+	
+	<dl class="dl-horizontal">
+        <dt>Prenom</dt>
+        <dd>{{artisan.prenom}}</dd>
+    </dl>
+	
+	<dl class="dl-horizontal">
+        <dt>Adresse</dt>
+        <dd>{{artisan.adresse}}</dd>
+    </dl>
+	
+	<dl class="dl-horizontal">
+        <dt>Date de naissance</dt>
+        <dd>{{artisan.datenaissance.format("d/m/y")}}</dd>
+    </dl>
+	
+	<dl class="dl-horizontal">
+        <dt>Date d'embauche</dt>
+        <dd>{{artisan.dateembauche.format("d/m/y")}}</dd>
+    </dl>
+	
+    <dl class="dl-horizontal">
+        <dt>Corps de Metier</dt>
+        <dd>{{artisan.corpsMetier.libelle}}</dd>
+    </dl>
+    
+    <br/>
+	
+    <a href="{{ path("bl_bi_chefChantier_listeArtisansDisponibles") }}">
+        <button class="btn btn-primary">Retour</button>
+    </a>
+    
+    
+</div>
+{% endblock %}

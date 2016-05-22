@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BatiInterim</title>
+
+    {% stylesheets '@blBiBundle/Resources/public/css/bootstrap.css' %}
+
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+
+    {% endstylesheets %}
+    
+    {% stylesheets '@blBiBundle/Resources/public/css/styleBatiInterim.css' %}
+
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+
+    {% endstylesheets %}
+ 
+  </head>
+  <body>    
+    <div class="container-fluid">
+        
+        <!-- Partie Header -->
+        <div class="headerBI">
+            <p>{% block title %}{% endblock %}</p>
+        </div>
+        
+        
+        <!-- Partie Menu -->
+        <div class="sideMenu">
+            <ul>
+                <!--<li class="sideMenuHead">
+                    <a href="#">Menu</a>
+                </li>-->
+                
+                <li>
+                    {{ app.session.get("utilisateur").nom }} {% if app.session.get("typeUtilisateur") != "gestionnaire" %} {{ app.session.get("utilisateur").prenom }} {% endif %}
+                </li>
+                <li>
+                    <a class="deconnexion" href="{{ path('bl_bi_deconnexion') }}">Déconnexion</a>
+                </li>
+                
+                <br/>
+                
+                {% if app.session.get("typeUtilisateur") == "gestionnaire" %}
+                    <li>
+                        <a href="{{ path("bl_bi_gestionnaire_listeArtisans") }}">Gestion des Artisans</a>
+                    </li>
+                    <li>
+                        <a href="{{ path("bl_bi_gestionnaire_listeEntreprises") }}">Gestion des Entrerpises</a>
+                    </li>
+
+                {% elseif app.session.get("typeUtilisateur") == "chefChantier" %}
+                    <li>
+                        <a href="{{ path('bl_bi_chefChantier_listeChantiers') }}">Liste des Chantiers</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('bl_bi_chefChantier_listeArtisansDisponibles') }}">Artisans Disponibles</a>
+                    </li>
+                    
+                    
+                {% elseif app.session.get("typeUtilisateur") == "artisan" %}
+                    <li>
+                        <a href="{{ path('bl_bi_artisan_listeAffectations') }}">Liste des Affectations</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('bl_bi_artisan_modifierArtisan') }}">Modifier mes données personnelles</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('bl_bi_artisan_listeConges') }}">Gérer les congés</a>
+                    </li>
+
+                {% endif %}
+                
+            </ul>
+        </div>
+        
+        <!-- Partie Contenu -->
+        <div class="contenu">
+            {#{% include('blBiBundle:Body:' ~ page ~ '.html.twig') %}#}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 avril 2016, 12:00:00
+    Author     : Bastien Lozach
+*/
+
+.headerBI{
+    background-color: lightblue;
+    margin-left: 185px;
+    padding: 25px;
+    width: 100%;
+}
+
+.sideMenu{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background-color: lightgray;
+    margin-left: -15px;
+    top: 0;
+}
+
+.sideMenu ul li.sideMenuHead{
+    padding: 10px 10px 10px 0;
+    font-size: 35px;
+}
+
+.sideMenu ul{
+}
+
+.sideMenu ul li{
+    list-style: none;
+    font-size: 15px;
+}
+
+.sideMenu ul li a{
+    color: #000;
+}
+
+.sideMenu ul li p{
+    color: #000;
+}
+
+.contenu{
+    margin-left: 200px;
+}
+
+.deconnexion{
+    font-size: 12px;
+    
+}

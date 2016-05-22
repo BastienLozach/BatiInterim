@@ -1,0 +1,66 @@
+{% extends "blBiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Détail d'un Chantier
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    
+	<dl class="dl-horizontal">
+        <dt>Nom</dt>
+        <dd>{{chantier.nom}}</dd>
+    </dl>
+	
+	<dl class="dl-horizontal">
+        <dt>Date de début</dt>
+        <dd>{{chantier.dateDebut.format("m/d/y")}}</dd>
+    </dl>
+	
+	<dl class="dl-horizontal">
+        <dt>Date de fin</dt>
+        <dd>{{chantier.dateFin.format("m/d/y")}}</dd>
+    </dl>
+	
+    
+	<h1>Missions</h1>
+            
+    <table class="table table-bordered">    
+        
+        <th>intitulé</th>
+		<th>Corps de Metier</th>
+        <th>artisans</th>
+        <th>prix journalier</th>
+        <th>date de debut</th>
+        <th>date de fin</th>
+        
+        
+        {% for mission in chantier.missions %}
+        <tr>
+            <td>{{mission.intitule}}</td>
+            <td>{{mission.corpsMetier.libelle}}</td>
+            <td>{{mission.nbreArtisans}}</td>
+			<td>{{mission.prixJournalier}}</td>
+			<td>{{mission.dateDebut.format("m/d/y")}}</td>
+			<td>{{mission.dateFin.format("m/d/y")}}</td>
+            
+        </tr>   
+        
+        {% endfor%}
+        
+				
+    </table>    
+
+	
+    <br/>
+	<br/>
+	
+<br/>
+
+    <a href="{{ path("bl_bi_artisan_listeAffectations") }}">
+        <button class="btn btn-primary">Retour</button>
+    </a>
+    
+    
+</div>
+{% endblock %}

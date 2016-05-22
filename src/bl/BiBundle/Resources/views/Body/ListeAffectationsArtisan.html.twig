@@ -1,0 +1,63 @@
+{% extends "blBiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Liste des Affectations
+{% endblock %}
+
+{% block body %}
+<br/>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Affectations</h4>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <th>Mission</th>
+			<th>Date de Debut</th>
+			<th>Date de Fin</th>
+            <th>statut</th>
+            <th>Actions</th>
+            
+            {% for affectation in liste %}
+                <tr>
+                    <td>{{ affectation.mission.intitule }}</td>
+                    <td>{{ affectation.mission.dateDebut.format("d/m/y") }}</td>
+					<td>{{ affectation.mission.dateFin.format("d/m/y") }}</td>
+                    <td>{{ affectation.statut }}</td>
+                    <td>
+                    {% if affectation.statut == "proposee" %}
+                        
+                        <a href="{{ path( "bl_bi_artisan_accepterAffectation" , { 'id': affectation.id}) }}">
+                            <button class="btn btn-success">Valider</button>
+                        </a>
+                    
+                    
+                    
+                        <a href="{{ path( "bl_bi_artisan_refuserAffectation" , { 'id': affectation.id}) }}">
+                            <button class="btn btn-danger">Refuser</button>
+                        </a>
+                    {% endif %}
+                    
+                        <a href="{{ path( "bl_bi_artisan_detailMission" , { 'id': affectation.mission.chantier.id}) }}">
+                            <button class="btn btn-primary">Detail</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+            
+        </table>
+	
+    </div>
+</div>
+
+<br/>
+
+            
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "bl\BiBundle:Template:Template.html.twig"%}
+
+{% block title %}
+    Liste des Artisans
+{% endblock %}
+
+{% block body %}
+<div class="well">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-1 col-md-offset-1">
+                <h4>Recherche</h4>
+            </div>
+        </div>    
+        
+        <div class="row">
+            {#
+            {{ form_start(form) }}
+            <div class="col-md-1">
+                <label>Mois : </label>
+            </div>
+            <div class="col-md-1">
+                {{ form_widget(form.date, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="col-md-1">
+                <label>Annee : </label>
+            </div>
+            <div class="col-md-1">
+                {{ form_widget(form.annee, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            {% if app.session.get("typeUtilisateur") == "comptable" %}
+            <div class="col-md-1">
+                <label>Visiteur : </label>
+            </div>
+            <div class="col-md-2">
+                {{ form_widget(form.visiteur, { 'attr' : { 'class': 'form-control' } }) }} 
+            </div>
+            {% endif %}
+            <div class="col-md-1">
+                {{ form_widget(form.rechercher, { 'attr' : { 'class': 'btn btn-primary' } }) }}
+            </div>
+            <div class="col-md-1">
+                <a href="{{ path( "bl_bi_chefChantier_listeArtisansDisponible" ) }}" >
+                    <button onClick="reinitialiser" class="btn btn-primary">Réinitialiser</button>
+                </a>
+            </div>
+            {{ form_end(form) }}
+            #}
+            {{form(form)}}
+        </div>
+    </div>
+</div>
+    
+<br/>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Liste des Artisans</h4>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <th>Nom</th>
+            <th>Corps de Metier</th>
+            <th>Actions</th>
+            
+            {% for artisan in liste %}
+                <tr>
+                    <td>{{ artisan.nom }} {{ artisan.prenom }}</td>
+                    <td>{{ artisan.corpsMetier.libelle }}</td>
+                    <td>
+                        <a href="{{ path( 'bl_bi_chefChantier_detailArtisan' , { 'id': artisan.id}) }}">
+                            <button class="btn btn-primary">Detail</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+            
+        </table>
+	
+    </div>
+</div>
+
+<br/>
+           
+{% endblock %}
